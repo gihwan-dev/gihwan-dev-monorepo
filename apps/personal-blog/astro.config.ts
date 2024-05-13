@@ -6,6 +6,9 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
+import vercel from "@astrojs/vercel/serverless";
+import vercelStatic from "@astrojs/vercel/static";
+
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
@@ -37,4 +40,6 @@ export default defineConfig({
     },
   },
   scopedStyleStrategy: "where",
+  output: "static",
+  adapter: vercelStatic(),
 });
