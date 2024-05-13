@@ -131,3 +131,66 @@ fragment comparisonFields on Character {
   }
 }
 ```
+
+### Operation name
+
+이때까지의 예제에서는 `query` 키워드를 생략했다. 그러나 `production` 에서는 이 키워드를 생략하지 않고 사용하는게 좋다.
+
+```graphQL
+query HeroNameAndFriends {
+  hero {
+    name
+    friends {
+      name
+    }
+  }
+}
+```
+
+### Variables
+
+변수를 사용하려면 다음 세가지 단계가 필요하다:
+
+1. `query` 안의 정적 값을 `$variableName`으로 변경한다.
+2. `$variableName`을 `query`의 인자로 선언해라.
+3. `variableName: value`를 `JSON` 포맷으로 전달해라.
+
+```graphql
+query HeroNameAndFriends($episode: Episode) {
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}
+```
+
+```json
+{
+  "episode": "JEDI"
+}
+```
+
+이렇게 변수를 전달하기 위해서 템플릿 리터럴은 사용하지 마라. `query`안에서 캡슐화 하는 편이 더 직관적이고 동작을 예상하기 쉽다.
+
+### Variable definitions
+
+변수의 기본값 설정은 선택적일 수 있고 필수일 수 있다. 위 예제에서 변수 타입에 `!`가 없었으므로 선택적이다. 만약 있다면 그 필드는 필수적으로 기본값이 필요하다.
+
+#### **Default variables**
+
+기본값은 변수에 다음과 같이 할당될 수 있다.
+
+```graphql
+query HeroNameAndFriends($episode: JEDI) {
+  hero {
+    name
+    friends {
+      name
+    }
+  }
+}
+```
+
+### Directives
