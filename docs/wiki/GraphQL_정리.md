@@ -194,3 +194,36 @@ query HeroNameAndFriends($episode: JEDI) {
 ```
 
 ### Directives
+
+인자를 통해 어떤 값을 포함시킬지 말지도 정할 수 있다.
+
+```graphql
+query Hero($episode: Episode, $withFriends: Boolean!) {
+  hero(episode: $episode) {
+    name
+    friends @include(if: $withFriends) {
+      name
+    }
+  }
+}
+```
+
+`GraphQL`에는 다음 두가지의 `directive`가 있다:
+
+- `@include(if: Boolean)`
+- `@skip(if: Boolean)`
+
+단어의 이름 처럼 동일하게 동작한다.
+
+### Mutations
+
+`mutation`을 통해 서버 데이터를 변경하는 요청을 보낼 수 있다.
+
+```graphql
+mutation CreateReviewForEpisode($ep: Episode!, $review: ReviewInput!) {
+  createReview(episode: $ep, review: $review) {
+    starts
+    commentary
+  }
+}
+```
