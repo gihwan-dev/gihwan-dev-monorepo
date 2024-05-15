@@ -6,11 +6,19 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "prettier": "@vercel/style-guide/prettier",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky",
+    "test": "vitest"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@testing-library/react": "^15.0.7",
+    "@vitejs/plugin-react": "^4.2.1",
+    "husky": "^9.0.11",
+    "jsdom": "^24.0.0",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },

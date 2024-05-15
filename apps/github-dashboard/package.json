@@ -6,7 +6,9 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "prepare": "husky",
+    "test": "vitest"
   },
   "dependencies": {
     "next": "^14.2.3",
@@ -17,11 +19,15 @@
     "@next/eslint-plugin-next": "^14.2.3",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@testing-library/react": "^15.0.7",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
-    "typescript": "^5.4.5"
+    "jsdom": "^24.0.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   }
 }
