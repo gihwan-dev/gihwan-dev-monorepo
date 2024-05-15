@@ -1,3 +1,9 @@
+import TitleText from "./components/TitleText";
+
 export default function Page(): JSX.Element {
-  return <div>page</div>;
+  return (
+    <div>
+      <TitleText />
+    </div>
+  );
 }
