@@ -4,7 +4,6 @@ module.exports = plugin(function ({ addBase }) {
   addBase({
     "*": {
       boxSizing: "border-box",
-      position: "relative",
       minWidth: "0",
     },
     body: {
