@@ -1,3 +1,3 @@
-pnpm lint -- --fix
+pnpm lint
 
 pnpm dlx prettier --cache --write .
