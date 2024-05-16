@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function TitleText() {
   return (
-    <motion.div
+    <motion.h1
       animate={{
         opacity: 1,
       }}
@@ -17,6 +17,6 @@ export default function TitleText() {
       }}
     >
       page
-    </motion.div>
+    </motion.h1>
   );
 }
