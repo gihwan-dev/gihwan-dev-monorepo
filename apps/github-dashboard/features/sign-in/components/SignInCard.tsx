@@ -10,6 +10,8 @@ import SignInWithGitHubButton from "~/features/sign-in/components/SignInWithGitH
 import SignInFeaturesCarousel from "~/features/sign-in/components/SignInFeaturesCarousel";
 
 export default function SignInCard(): JSX.Element {
+  const clientId = process.env.GITHUB_CLIENT_ID;
+
   return (
     <Card className="mx-auto container max-w-md">
       <CardHeader>
@@ -20,7 +22,7 @@ export default function SignInCard(): JSX.Element {
         <SignInFeaturesCarousel />
       </CardContent>
       <CardFooter>
-        <SignInWithGitHubButton />
+        <SignInWithGitHubButton clientId={clientId} />
       </CardFooter>
     </Card>
   );
