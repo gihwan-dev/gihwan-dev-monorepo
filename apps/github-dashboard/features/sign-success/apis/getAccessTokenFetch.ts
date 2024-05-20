@@ -1,6 +1,6 @@
 import { postFetcher } from "@repo/utils/src/fetch-utils";
 
-interface GetAccessTokenFetchParams {
+export interface GetAccessTokenFetchParams {
   code: string | null;
   clientId: string | undefined;
   clientSecret: string | undefined;
