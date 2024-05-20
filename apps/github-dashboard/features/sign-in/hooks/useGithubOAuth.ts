@@ -18,7 +18,7 @@ export const useGithubOAuth = (clientId: string | undefined) => {
     }
 
     githubAuthUrl.searchParams.append("client_id", clientId);
-    githubAuthUrl.searchParams.append("redirect_url", redirectUrl.href);
+    githubAuthUrl.searchParams.append("redirect_uri", redirectUrl.href);
     router.push(githubAuthUrl.href);
   };
 

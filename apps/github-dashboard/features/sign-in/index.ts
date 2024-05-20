@@ -1,1 +1,1 @@
-export { default as SignInCard } from "./components/SignInCard";
+export { default as SignIn } from "./components";

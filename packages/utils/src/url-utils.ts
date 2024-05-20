@@ -13,3 +13,16 @@ export const addUrlPathname = (url: string, pathname: string) => {
 
   return newUrl;
 };
+
+export const addUrlSearchParams = (
+  url: string,
+  searchParams: Record<string, string>,
+) => {
+  const newUrl = new URL(url);
+
+  Object.entries(searchParams).forEach(([key, value]) => {
+    newUrl.searchParams.append(key, value);
+  });
+
+  return newUrl;
+};
