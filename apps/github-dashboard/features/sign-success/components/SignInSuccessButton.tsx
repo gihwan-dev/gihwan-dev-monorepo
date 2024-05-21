@@ -1,15 +1,22 @@
 "use client";
 
+import { useContext } from "react";
 import { Button } from "~/components/ui/button";
-import { useSignInSuccess } from "~/features/sign-success/hooks/useSignInSuccess";
+import LottieLoading from "~/components/LottieLoading";
+import SignInSuccessContext from "~/features/sign-success/components/SignInSuccessContext";
 
-interface SignInSuccessButtonProps {
-  clientId: string | undefined;
-  clientSecret: string | undefined;
-}
+export default function SignInSuccessButton() {
+  const context = useContext(SignInSuccessContext);
 
-export default function SignInSuccessButton(props: SignInSuccessButtonProps) {
-  const { onClick } = useSignInSuccess(props);
+  if (context.isSuccess) {
+    return null;
+  }
 
-  return <Button onClick={onClick}>Go to dashboard</Button>;
+  return context.isPending ? (
+    <LottieLoading height="100px" width="100px" />
+  ) : (
+    <Button className="w-44" onClick={context.onClick}>
+      Go to dashboard
+    </Button>
+  );
 }
