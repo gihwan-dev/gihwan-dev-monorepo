@@ -20,13 +20,18 @@ export const useSignInSuccess = (params: UseSignInSuccessParams) => {
     mutate(
       { ...params, code },
       {
-        onSuccess: (data) => {
+        onSettled: (data) => {
+          if (!data) {
+            throw new Error("Failed to fetch access token");
+          }
+
           const accessToken = data.access_token;
 
           if (!accessToken) {
             throw new Error("Failed to fetch access token");
           }
-
+        },
+        onSuccess: (data) => {
           setGithubAccessTokenInLocalStorage(data.access_token);
           router.push("/");
         },
