@@ -10,7 +10,18 @@ interface ReactQueryProviderProps {
 export default function ReactQueryProvider({
   children,
 }: ReactQueryProviderProps) {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: 0,
+        throwOnError: true,
+      },
+      mutations: {
+        retry: 0,
+        throwOnError: true,
+      },
+    },
+  });
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );

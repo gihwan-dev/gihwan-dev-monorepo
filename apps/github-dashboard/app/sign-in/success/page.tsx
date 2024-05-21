@@ -7,12 +7,17 @@ export default function SignInSuccessPage() {
   const clientSecret = process.env.GITHUB_CLIENT_SECRET;
   return (
     <SignInSuccess.Layout>
-      <Suspense fallback={<LottieLoading />}>
-        <SignInSuccess.Provider clientId={clientId} clientSecret={clientSecret}>
-          <SignInSuccess.Title />
-          <SignInSuccess.Button />
-        </SignInSuccess.Provider>
-      </Suspense>
+      <SignInSuccess.Error>
+        <Suspense fallback={<LottieLoading />}>
+          <SignInSuccess.Provider
+            clientId={clientId}
+            clientSecret={clientSecret}
+          >
+            <SignInSuccess.Title />
+            <SignInSuccess.Button />
+          </SignInSuccess.Provider>
+        </Suspense>
+      </SignInSuccess.Error>
     </SignInSuccess.Layout>
   );
 }

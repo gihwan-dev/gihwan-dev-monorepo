@@ -13,11 +13,13 @@ export default function SignInSuccessProvider({
   children,
   ...state
 }: ChildrenProps & SignInSuccessProviderProps) {
+  const signInState = useSignInSuccess(state);
+
   return (
     <SignInSuccessContext.Provider
       value={{
         ...state,
-        ...useSignInSuccess(state),
+        ...signInState,
       }}
     >
       {children}

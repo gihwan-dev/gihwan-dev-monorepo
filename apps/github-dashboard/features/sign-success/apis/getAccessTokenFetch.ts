@@ -1,5 +1,4 @@
 import { postFetcher } from "@repo/utils/src/fetch-utils";
-import { sleep } from "@repo/utils/src/promise-utils";
 
 export interface GetAccessTokenFetchParams {
   code: string | null;
@@ -34,14 +33,7 @@ export const getAccessTokenFetch = async ({
     throw new Error("Failed to fetch access token");
   }
 
-  await sleep(5000);
-
-  return {
-    access_token: "mocked_access_token",
-    scope: "mocked_scope",
-    token_type: "bearer",
-  };
-
+  // TODO: 임시 코드 커밋 전에 지워야함.
   return (await response.json()) as Promise<{
     access_token: string;
     scope: string;
