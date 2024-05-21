@@ -14,7 +14,7 @@ export const useSignInSuccess = (params: UseSignInSuccessParams) => {
 
   const code = searchParams.get("code");
 
-  const { mutate, isPending, isError, error } = useGetAccessToken();
+  const { mutate, isPending, isError, error, isSuccess } = useGetAccessToken();
 
   const onClick = () => {
     mutate(
@@ -39,5 +39,6 @@ export const useSignInSuccess = (params: UseSignInSuccessParams) => {
     isPending,
     isError,
     error,
+    isSuccess,
   };
 };

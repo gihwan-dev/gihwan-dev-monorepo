@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "src/url-utils.ts"
+    "src/url-utils.ts",
+    "src/fetch-utils.ts",
+    "src/promise-utils.ts"
   ],
   "license": "MIT",
   "publishConfig": {

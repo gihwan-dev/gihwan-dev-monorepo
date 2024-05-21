@@ -5,8 +5,10 @@ export default function SignInSuccessPage() {
   const clientSecret = process.env.GITHUB_CLIENT_SECRET;
   return (
     <SignInSuccess.Layout>
-      <SignInSuccess.Title />
-      <SignInSuccess.Button clientId={clientId} clientSecret={clientSecret} />
+      <SignInSuccess.Provider clientId={clientId} clientSecret={clientSecret}>
+        <SignInSuccess.Title />
+        <SignInSuccess.Button />
+      </SignInSuccess.Provider>
     </SignInSuccess.Layout>
   );
 }
