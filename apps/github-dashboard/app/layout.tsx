@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "~/lib/utils";
 import ReactQueryProvider from "~/providers/ReactQueryProvider";
+import ThemeProvider from "~/providers/ThemeProvider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -22,10 +23,10 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body
-        className={cn(fontSans.variable, "bg-background font-sans antialiased")}
-      >
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+      <body className={cn(fontSans.variable, "font-sans antialiased")}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

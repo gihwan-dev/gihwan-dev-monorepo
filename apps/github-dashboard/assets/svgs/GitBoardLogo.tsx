@@ -13,11 +13,11 @@ export default function GitBoardLogo({ height, width }: GitBoardLogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <rect fill="url(#pattern0_332_2633)" height="277" width="277" />
+      <rect fill="url(#pattern0)" height="277" width="277" />
       <defs>
         <pattern
           height="1"
-          id="pattern0_332_2633"
+          id="pattern0"
           patternContentUnits="objectBoundingBox"
           width="1"
         >
