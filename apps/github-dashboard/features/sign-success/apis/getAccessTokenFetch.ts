@@ -33,7 +33,6 @@ export const getAccessTokenFetch = async ({
     throw new Error("Failed to fetch access token");
   }
 
-  // TODO: 임시 코드 커밋 전에 지워야함.
   return (await response.json()) as Promise<{
     access_token: string;
     scope: string;
