@@ -1,7 +1,29 @@
+import { SideBar } from "~/features/sidebar";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "~/components/ui/resizable";
+
 export default function Page(): JSX.Element {
   return (
-    <div className="h-full bg-red-500">
-      <h1>Will be main page here.</h1>
-    </div>
+    <ResizablePanelGroup
+      className="w-full h-screen overflow-hidden bg-muted/40 flex flex-row"
+      direction="horizontal"
+    >
+      <SideBar.Layout>
+        <SideBar.Header>
+          <SideBar.Logo />
+        </SideBar.Header>
+        <SideBar.WidgetContainer>
+          <li>some widget</li>
+        </SideBar.WidgetContainer>
+        <SideBar.Footer>
+          <SideBar.ThemeToggle />
+        </SideBar.Footer>
+      </SideBar.Layout>
+      <ResizableHandle />
+      <ResizablePanel className="flex-1 h-screen" defaultSize={70} />
+    </ResizablePanelGroup>
   );
 }
