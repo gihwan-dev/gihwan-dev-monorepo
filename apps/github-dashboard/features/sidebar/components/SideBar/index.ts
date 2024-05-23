@@ -4,6 +4,7 @@ import SideBarWidgetContainer from "~/features/sidebar/components/SideBar/SidBar
 import SideBarFooter from "~/features/sidebar/components/SideBar/SideBarFooter";
 import SideBarHeader from "~/features/sidebar/components/SideBar/SideBarHeader";
 import SideBarThemeToggle from "~/features/sidebar/components/SideBar/SideBarThemeToggle";
+import SideBarWidgetList from "~/features/sidebar/components/SideBar/SidBarWidgetList";
 
 export default {
   Layout: SideBarLayout,
@@ -12,4 +13,5 @@ export default {
   Footer: SideBarFooter,
   Header: SideBarHeader,
   ThemeToggle: SideBarThemeToggle,
+  WidgetList: SideBarWidgetList,
 };
