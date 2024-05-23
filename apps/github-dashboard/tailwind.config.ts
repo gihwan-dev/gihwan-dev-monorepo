@@ -20,6 +20,9 @@ const config = {
       },
     },
     extend: {
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(100px, 1fr))",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },

@@ -16,7 +16,7 @@ export default function Page(): JSX.Element {
           <SideBar.Logo />
         </SideBar.Header>
         <SideBar.WidgetContainer>
-          <li>some widget</li>
+          <SideBar.WidgetList />
         </SideBar.WidgetContainer>
         <SideBar.Footer>
           <SideBar.ThemeToggle />
