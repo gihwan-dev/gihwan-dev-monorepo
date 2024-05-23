@@ -1,3 +1,5 @@
+"use client";
+
 import { widgetList } from "~/features/widget";
 import SideBarWidgetItem from "~/features/sidebar/components/SideBar/SideBarWidgetItem";
 
