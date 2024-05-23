@@ -16,7 +16,10 @@ export default function SideBarWidgetItem({
 }: SideBarWidgetItemProps) {
   return (
     <ToolTipWrapper description={description}>
-      <Card className="w-full cursor-pointer hover:bg-muted transition-all duration-300 min-w-28 max-w-40 rounded-lg aspect-square">
+      <Card
+        className="w-full cursor-pointer hover:bg-muted transition-all duration-300 min-w-28 max-w-40 rounded-lg aspect-square"
+        draggable
+      >
         <header className="pt-3 text-xs font-bold items-center justify-center flex">
           {name}
         </header>
