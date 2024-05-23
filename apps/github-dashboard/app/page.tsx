@@ -1,9 +1,9 @@
 import { SideBar } from "~/features/sidebar";
 import {
   ResizableHandle,
-  ResizablePanel,
   ResizablePanelGroup,
 } from "~/components/ui/resizable";
+import Panel from "~/features/panel";
 
 export default function Page(): JSX.Element {
   return (
@@ -23,7 +23,9 @@ export default function Page(): JSX.Element {
         </SideBar.Footer>
       </SideBar.Layout>
       <ResizableHandle />
-      <ResizablePanel className="flex-1 h-screen" defaultSize={70} />
+      <Panel.Layout>
+        <Panel.Container />
+      </Panel.Layout>
     </ResizablePanelGroup>
   );
 }
