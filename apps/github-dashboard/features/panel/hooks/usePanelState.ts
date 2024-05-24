@@ -24,7 +24,7 @@ export default function usePanelState() {
       if (elementInArea) {
         gridItemRef.current.className = `${basicClassName} bg-blue-200`;
       } else {
-        gridItemRef.current.className = `${basicClassName} border transition-all`;
+        gridItemRef.current.className = basicClassName;
       }
     }
   }, [offsetX, offsetY, widgetSize]);
