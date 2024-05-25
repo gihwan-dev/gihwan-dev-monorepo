@@ -1,4 +1,4 @@
-interface Index {
+interface DragInfoState {
   offsetX: number;
   offsetY: number;
 
@@ -12,19 +12,10 @@ interface Index {
   };
 }
 
-export function isElementInArea({
-  elementLeft,
-  elementTop,
-  elementWidth,
-  elementHeight,
-  offsetX,
-  offsetY,
-  size,
-}: Index) {
-  const areaLeft = offsetX - (size.width / 2) * elementWidth;
-  const areaRight = offsetX + (size.width / 2) * elementWidth;
-  const areaTop = offsetY - (size.height / 2) * elementHeight;
-  const areaBottom = offsetY + (size.height / 2) * elementHeight;
+export function isElementInArea(dragInfo: DragInfoState) {
+  const { areaLeft, areaTop, areaRight, areaBottom } = getArea(dragInfo);
+
+  const { elementHeight, elementTop, elementWidth, elementLeft } = dragInfo;
 
   const elementCenterX = elementLeft + elementWidth / 2;
 
@@ -37,3 +28,18 @@ export function isElementInArea({
     elementCenterY <= areaBottom
   );
 }
+
+const getArea = ({
+  elementWidth,
+  elementHeight,
+  offsetX,
+  offsetY,
+  size,
+}: DragInfoState) => {
+  return {
+    areaLeft: offsetX - (size.width / 2) * elementWidth,
+    areaRight: offsetX + (size.width / 2) * elementWidth,
+    areaTop: offsetY - (size.height / 2) * elementHeight,
+    areaBottom: offsetY + (size.height / 2) * elementHeight,
+  };
+};
