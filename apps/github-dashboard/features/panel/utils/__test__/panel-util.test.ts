@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isElementInArea } from "~/features/panel/utils";
+import { getArea, isElementInArea } from "~/features/panel/utils";
 
 describe("panel-util-test", () => {
   it("isElementInArea valid case test", () => {
@@ -56,5 +56,38 @@ describe("panel-util-test", () => {
 
     // Then
     expect(result).toBe(false);
+  });
+
+  it("getArea test", () => {
+    // Given
+    const elementWidth = 100;
+    const elementHeight = 100;
+    const elementLeft = 50;
+    const elementTop = 50;
+    const offsetX = 75;
+    const offsetY = 75;
+    const size = {
+      width: 3,
+      height: 3,
+    };
+
+    // When
+    const result = getArea({
+      elementWidth,
+      elementHeight,
+      offsetX,
+      offsetY,
+      size,
+      elementLeft,
+      elementTop,
+    });
+
+    // Then
+    expect(result).toEqual({
+      areaLeft: -75,
+      areaRight: 225,
+      areaTop: -75,
+      areaBottom: 225,
+    });
   });
 });
