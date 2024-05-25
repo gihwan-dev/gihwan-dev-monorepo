@@ -29,7 +29,7 @@ export function isElementInArea(dragInfo: DragInfoState) {
   );
 }
 
-const getArea = ({
+export const getArea = ({
   elementWidth,
   elementHeight,
   offsetX,
