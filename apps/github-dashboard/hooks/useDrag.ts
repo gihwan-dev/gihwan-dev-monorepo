@@ -1,35 +1,74 @@
 import type React from "react";
-import { useCallback } from "react";
+import { createElement, useCallback } from "react";
+import { createRoot } from "react-dom/client";
 import _ from "lodash";
 import { useDragStore } from "~/stores/useDragStore";
+import { usePanelStore } from "~/features/panel";
+import {
+  addMouseMoveEvent,
+  addMouseUpEvent,
+  addStyleForDragContainer,
+  getDragLayerElement,
+  getDragWidgetContainer,
+} from "~/features/panel/utils/panel-drag-util";
 
 export default function useDrag() {
-  const { setIsDragging, setOffset, resetDragState, setWidgetSize } =
-    useDragStore();
+  const { setOffset, resetDragState, setWidgetSize } = useDragStore();
 
-  const onDragStart = (
-    e: React.DragEvent,
+  const {
+    gridItemHeight,
+    gridItemWidth,
+    reset: resetPanelState,
+  } = usePanelStore();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- throttledSetOffset is a function
+  const throttledSetOffset = useCallback(_.throttle(setOffset, 100), []);
+
+  const onMouseDown = (
+    e: React.MouseEvent<HTMLDivElement>,
     size: { width: number; height: number },
+    component: React.FC,
   ) => {
-    setIsDragging(true);
+    e.preventDefault();
+    const dragWidgetContainer = getDragWidgetContainer({
+      gridItemWidth,
+      gridItemHeight,
+      widgetSize: size,
+    });
+
+    const widgetRoot = createRoot(dragWidgetContainer);
+
+    const targetComponent = createElement(component);
+
+    const dragLayerElement = getDragLayerElement();
+
+    widgetRoot.render(targetComponent);
+
+    dragLayerElement.appendChild(dragWidgetContainer);
+
+    addStyleForDragContainer({
+      offsetX: e.clientX,
+      offsetY: e.clientY,
+      containerWidget: dragWidgetContainer,
+    });
+
+    addMouseMoveEvent({
+      widgetContainer: dragWidgetContainer,
+      setOffset: throttledSetOffset,
+    });
+
+    addMouseUpEvent({
+      widgetContainer: dragWidgetContainer,
+      resetDragState,
+      resetPanelState,
+      size,
+    });
+
     setOffset(e.clientX, e.clientY);
     setWidgetSize(size.width, size.height);
   };
 
-  const onDrag = (e: React.DragEvent) => {
-    setOffset(e.clientX, e.clientY);
-  };
-
-  const onDragEnd = () => {
-    resetDragState();
-  };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps -- for performance optimization
-  const throttledOnDrag = useCallback(_.throttle(onDrag, 100), []);
-
   return {
-    onDragStart,
-    onDrag: throttledOnDrag,
-    onDragEnd,
+    onMouseDown,
   };
 }

@@ -27,6 +27,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ReactQueryProvider>{children}</ReactQueryProvider>
         </ThemeProvider>
+        <div id="drag" />
       </body>
     </html>
   );
