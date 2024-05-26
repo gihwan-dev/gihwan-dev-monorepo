@@ -1,9 +1,18 @@
 "use client";
 
-import usePanelState from "~/features/panel/hooks/usePanelState";
+import { useEffect } from "react";
+import usePanelState from "../hooks/usePanelState";
 
-export default function PanelGridItem() {
-  const { ref } = usePanelState();
+interface PanelGridItemProps {
+  index: number;
+}
 
-  return <li ref={ref} />;
+export default function PanelGridItem({ index }: PanelGridItemProps) {
+  const { ref, setCurrentIndex } = usePanelState();
+
+  useEffect(() => {
+    setCurrentIndex(index);
+  }, [setCurrentIndex, index]);
+
+  return <li id={`grid-item-${index}`} ref={ref} />;
 }

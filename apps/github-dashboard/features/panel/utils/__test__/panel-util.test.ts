@@ -1,69 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { getArea, isElementInArea } from "~/features/panel/utils";
+import { getArea } from "~/features/panel/utils/panel-drag-util";
 
 describe("panel-util-test", () => {
-  it("isElementInArea valid case test", () => {
-    // Given
-    const elementLeft = 0;
-    const elementTop = 0;
-    const elementWidth = 100;
-    const elementHeight = 100;
-    const offsetX = 50;
-    const offsetY = 50;
-    const size = {
-      width: 3,
-      height: 3,
-    };
-
-    // When
-    const result = isElementInArea({
-      elementLeft,
-      elementTop,
-      elementWidth,
-      elementHeight,
-      offsetX,
-      offsetY,
-      size,
-    });
-
-    // Then
-    expect(result).toBe(true);
-  });
-
-  it("isElementInArea invalid case test", () => {
-    // Given
-    const elementLeft = 0;
-    const elementTop = 0;
-    const elementWidth = 50;
-    const elementHeight = 50;
-    const offsetX = 150;
-    const offsetY = 150;
-    const size = {
-      width: 3,
-      height: 3,
-    };
-
-    // When
-    const result = isElementInArea({
-      elementLeft,
-      elementTop,
-      elementWidth,
-      elementHeight,
-      offsetX,
-      offsetY,
-      size,
-    });
-
-    // Then
-    expect(result).toBe(false);
-  });
-
   it("getArea test", () => {
     // Given
     const elementWidth = 100;
     const elementHeight = 100;
-    const elementLeft = 50;
-    const elementTop = 50;
     const offsetX = 75;
     const offsetY = 75;
     const size = {
@@ -78,8 +20,6 @@ describe("panel-util-test", () => {
       offsetX,
       offsetY,
       size,
-      elementLeft,
-      elementTop,
     });
 
     // Then

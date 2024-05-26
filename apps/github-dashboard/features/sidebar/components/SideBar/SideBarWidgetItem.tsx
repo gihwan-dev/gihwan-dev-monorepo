@@ -1,5 +1,6 @@
 "use client";
 
+import type { FC } from "react";
 import { Card } from "~/components/ui/card";
 import ToolTipWrapper from "~/components/ToolTipWrapper";
 import useDrag from "~/hooks/useDrag";
@@ -9,6 +10,7 @@ interface SideBarWidgetItemProps {
   height: number;
   name: string;
   description: string;
+  component: FC;
 }
 
 export default function SideBarWidgetItem({
@@ -16,16 +18,16 @@ export default function SideBarWidgetItem({
   height,
   width,
   name,
+  component,
 }: SideBarWidgetItemProps) {
-  const { onDragStart, ...rest } = useDrag();
+  const { onMouseDown, ...rest } = useDrag();
   return (
     <ToolTipWrapper description={description}>
       <Card
         className="w-full cursor-pointer hover:bg-muted transition-all duration-300 min-w-28 max-w-40 rounded-lg aspect-square"
-        draggable
         {...rest}
-        onDragStart={(e) => {
-          onDragStart(e, { width, height });
+        onMouseDown={(e) => {
+          onMouseDown(e, { width, height }, component);
         }}
       >
         <header className="pt-3 text-xs font-bold items-center justify-center flex">
