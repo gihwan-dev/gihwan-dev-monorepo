@@ -5,7 +5,8 @@
   "files": [
     "src/url-utils.ts",
     "src/fetch-utils.ts",
-    "src/promise-utils.ts"
+    "src/promise-utils.ts",
+    "src/dom-utils.ts"
   ],
   "license": "MIT",
   "publishConfig": {

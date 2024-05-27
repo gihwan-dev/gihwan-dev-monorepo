@@ -14,5 +14,11 @@ export default function PanelGridItem({ index }: PanelGridItemProps) {
     setCurrentIndex(index);
   }, [setCurrentIndex, index]);
 
-  return <li id={`grid-item-${index}`} ref={ref} />;
+  return (
+    <li
+      data-testid={`grid-item-${index}`}
+      id={`grid-item-${index}`}
+      ref={ref}
+    />
+  );
 }

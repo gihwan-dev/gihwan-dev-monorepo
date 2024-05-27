@@ -25,6 +25,7 @@ export default function SideBarWidgetItem({
     <ToolTipWrapper description={description}>
       <Card
         className="w-full cursor-pointer hover:bg-muted transition-all duration-300 min-w-28 max-w-40 rounded-lg aspect-square"
+        data-testid={`sidebar-widget-card-${name}`}
         {...rest}
         onMouseDown={(e) => {
           onMouseDown(e, { width, height }, component);
