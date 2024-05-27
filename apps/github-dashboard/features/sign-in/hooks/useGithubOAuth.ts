@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { addUrlPathname, resetURLPathname } from "@repo/utils/src/url-utils";
+import { resetURLPathname, setUrlPathname } from "@repo/utils/src/url-utils";
 
 export const useGithubOAuth = (clientId: string | undefined) => {
   const router = useRouter();
@@ -11,7 +11,7 @@ export const useGithubOAuth = (clientId: string | undefined) => {
 
     const formattedUrl = resetURLPathname(originUrl.href);
 
-    const redirectUrl = addUrlPathname(formattedUrl.href, "/sign-in/success");
+    const redirectUrl = setUrlPathname(formattedUrl.href, "/sign-in/success");
 
     if (!clientId) {
       return;

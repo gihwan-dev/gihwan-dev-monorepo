@@ -10,7 +10,7 @@ import {
   addStyleForDragContainer,
   getDragLayerElement,
   getDragWidgetContainer,
-} from "~/features/panel/utils/panel-drag-util";
+} from "~/utils/drag-util";
 
 export default function useDrag() {
   const { setOffset, resetDragState, setWidgetSize } = useDragStore();

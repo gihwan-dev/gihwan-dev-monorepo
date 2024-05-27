@@ -14,6 +14,7 @@ export default function PanelGridContainer() {
       </ul>
       <ul
         className="absolute top-0 left-0 h-full w-full grid grid-cols-12 grid-rows-12 z-50"
+        data-testid="virtual-grid"
         id="virtual-grid"
       />
     </>
