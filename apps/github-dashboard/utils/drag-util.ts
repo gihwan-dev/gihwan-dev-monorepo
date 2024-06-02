@@ -4,6 +4,11 @@ import {
 } from "@repo/utils/src/dom-utils";
 import { getMousePosition } from "@repo/utils/src/mouse-event-utils";
 
+const listener = new WeakMap<
+  HTMLDivElement,
+  EventListenerOrEventListenerObject
+>();
+
 interface GetDragWidgetContainerState {
   gridItemWidth: number;
   gridItemHeight: number;
@@ -50,7 +55,7 @@ export const addStyleForDragContainer = ({
   addStyleToDomNode({
     target: containerWidget,
     style: {
-      position: "fixed",
+      position: "absolute",
       zIndex: "1000",
       left: `${offsetX - width / 2}px`,
       top: `${offsetY - height / 2}px`,
@@ -72,21 +77,25 @@ export const addMouseMoveEvent = ({
   widgetContainer,
   setOffset,
 }: AddMouseMoveEventState) => {
-  widgetContainer.addEventListener("mousemove", (e) => {
-    const { x: clientX, y: clientY } = getMousePosition(e);
+  const { width, height } = getElementWidthAndHeight(widgetContainer);
 
-    const { width, height } = getElementWidthAndHeight(widgetContainer);
+  const mouseMoveHandler: EventListenerOrEventListenerObject = (e) => {
+    const { x, y } = getMousePosition(e as MouseEvent);
 
     addStyleToDomNode({
       target: widgetContainer,
       style: {
-        left: `${clientX - width / 2}px`,
-        top: `${clientY - height / 2}px`,
+        left: `${x - width / 2}px`,
+        top: `${y - height / 2}px`,
       },
     });
 
-    setOffset(clientX, clientY);
-  });
+    setOffset(x, y);
+  };
+
+  document.addEventListener("mousemove", mouseMoveHandler);
+
+  listener.set(widgetContainer, mouseMoveHandler);
 };
 
 interface AddMouseUpEventState {
@@ -99,6 +108,16 @@ interface AddMouseUpEventState {
   };
 }
 
+const removeMouseMoveEvent = (widgetContainer: HTMLDivElement) => {
+  const mouseMoveHandler = listener.get(widgetContainer);
+
+  if (!mouseMoveHandler) {
+    return;
+  }
+
+  document.removeEventListener("mousemove", mouseMoveHandler);
+};
+
 export const addMouseUpEvent = ({
   widgetContainer,
   resetDragState,
@@ -106,10 +125,15 @@ export const addMouseUpEvent = ({
   size,
 }: AddMouseUpEventState) => {
   widgetContainer.addEventListener("mouseup", () => {
+    removeMouseMoveEvent(widgetContainer);
+
     const activeGridItem = getActiveGridItem();
 
     if (!activeGridItem) {
       // TODO: 에러 처리
+      widgetContainer.remove();
+      resetDragState();
+      resetPanelState();
       return;
     }
 

@@ -1,6 +1,6 @@
 export const getMousePosition = (event: MouseEvent) => {
   return {
-    x: event.clientX,
-    y: event.clientY,
+    x: event.pageX,
+    y: event.pageY,
   };
 };

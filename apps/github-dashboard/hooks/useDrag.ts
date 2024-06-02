@@ -22,7 +22,7 @@ export default function useDrag() {
   } = usePanelStore();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- throttledSetOffset is a function
-  const throttledSetOffset = useCallback(_.throttle(setOffset, 100), []);
+  const throttledSetOffset = useCallback(_.throttle(setOffset, 200), []);
 
   const onMouseDown = (
     e: React.MouseEvent<HTMLDivElement>,
