@@ -42,7 +42,7 @@ describe("Drag and drop test", () => {
     });
 
     // Then
-    expect(containerWidget.style.position).toBe("fixed");
+    expect(containerWidget.style.position).toBe("absolute");
     expect(containerWidget.style.zIndex).toBe("1000");
     expect(containerWidget.style.left).toBe("75px");
     expect(containerWidget.style.top).toBe("75px");
