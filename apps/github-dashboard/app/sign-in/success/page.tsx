@@ -1,4 +1,4 @@
-import type { JSX} from "react";
+import type { JSX } from "react";
 import { Suspense } from "react";
 import { SignInSuccess } from "~/features/sign-success";
 import LottieLoading from "~/components/LottieLoading";
