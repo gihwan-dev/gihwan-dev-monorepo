@@ -2,11 +2,11 @@
 module.exports = {
   root: true,
   extends: [
-    "@repo/eslint-config/next.js",
-    "plugin:storybook/recommended",
-    "plugin:storybook/recommended"
+    '@repo/eslint-config/next.js',
+    'plugin:storybook/recommended',
+    'plugin:storybook/recommended',
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,
   },
