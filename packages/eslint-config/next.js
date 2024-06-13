@@ -10,7 +10,6 @@ module.exports = {
     "@vercel/style-guide/eslint/react",
     "@vercel/style-guide/eslint/next",
     "@vercel/style-guide/eslint/typescript",
-    "eslint-config-turbo",
   ].map(require.resolve),
   rules: {
     "import/no-default-export": "off",

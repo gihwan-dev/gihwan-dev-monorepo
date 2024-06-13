@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 interface GithubLogoProps {
   className?: string;
 
@@ -9,7 +11,7 @@ export default function GithubLogo({
   width,
   height,
   className,
-}: GithubLogoProps) {
+}: GithubLogoProps): JSX.Element {
   return (
     <svg
       className={className}

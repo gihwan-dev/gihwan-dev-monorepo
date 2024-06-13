@@ -2,6 +2,7 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import type { ReactNode } from "react";
 import { cn } from "~/lib/utils";
 import ReactQueryProvider from "~/providers/ReactQueryProvider";
 import ThemeProvider from "~/providers/ThemeProvider";
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
   return (
     <html lang="en">

@@ -1,9 +1,9 @@
 "use client";
 
-import { useContext } from "react";
+import { type JSX, useContext } from "react";
 import SignInSuccessContext from "~/features/sign-success/components/SignInSuccessContext";
 
-export default function SignInSuccessTitle() {
+export default function SignInSuccessTitle(): JSX.Element | null {
   const context = useContext(SignInSuccessContext);
 
   if (context.isSuccess || context.isPending) {

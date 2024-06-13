@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -14,7 +15,7 @@ import {
 } from "~/components/ui/card";
 import { features } from "~/features/sign-in/consts/features";
 
-export default function SignInFeaturesCarousel() {
+export default function SignInFeaturesCarousel(): JSX.Element {
   return (
     <Carousel className="w-full max-w-sm">
       <CarouselContent>

@@ -16,13 +16,13 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@testing-library/react": "^15.0.7",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^4.3.1",
     "husky": "^9.0.11",
-    "jsdom": "^24.0.0",
-    "prettier": "^3.2.5",
+    "jsdom": "^24.1.0",
+    "prettier": "^3.3.2",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@9.1.1",
+  "packageManager": "pnpm@9.3.0",
   "engines": {
     "node": ">=18"
   }

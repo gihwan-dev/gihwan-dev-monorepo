@@ -1,8 +1,9 @@
 "use client";
 
+import type { JSX } from "react";
 import PanelGridItem from "./PanelGridItem";
 
-export default function PanelGridContainer() {
+export default function PanelGridContainer(): JSX.Element {
   const itemAmount = 12 * 12;
 
   return (

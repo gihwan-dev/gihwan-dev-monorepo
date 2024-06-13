@@ -9,7 +9,7 @@ interface ReactQueryProviderProps {
 
 export default function ReactQueryProvider({
   children,
-}: ReactQueryProviderProps) {
+}: ReactQueryProviderProps): React.JSX.Element {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {

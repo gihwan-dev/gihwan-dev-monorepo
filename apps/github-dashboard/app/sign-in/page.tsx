@@ -1,7 +1,8 @@
+import type { JSX } from "react";
 import { SignIn } from "~/features/sign-in";
 import SignInFeaturesCarousel from "~/features/sign-in/components/SignInFeaturesCarousel";
 
-export default function SignInPage() {
+export default function SignInPage(): JSX.Element {
   const clientId = process.env.GITHUB_CLIENT_ID;
 
   return (

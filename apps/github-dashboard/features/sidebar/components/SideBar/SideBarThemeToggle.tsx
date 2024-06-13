@@ -2,6 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import type { JSX } from "react";
 import { Button } from "~/components/ui/button";
 import {
   DropdownMenu,
@@ -10,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 
-export default function SideBarThemeToggle() {
+export default function SideBarThemeToggle(): JSX.Element {
   const { setTheme } = useTheme();
 
   return (
