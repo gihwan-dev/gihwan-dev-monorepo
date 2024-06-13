@@ -25,7 +25,7 @@ export default function CheckBox({ isChecked, onClick }: CheckBoxProps) {
         xmlns="http://www.w3.org/2000/svg"
       >
         <circle
-          className={'transition-all duration-100 ease-in-out'}
+          className="transition-all duration-100 ease-in-out"
           cx="16"
           cy="16"
           fill={isChecked ? '#7C3AED' : '#FEFCE8'}
