@@ -1,5 +1,6 @@
 "use client";
 
+import type { JSX} from "react";
 import { useEffect } from "react";
 import usePanelState from "../hooks/usePanelState";
 
@@ -7,7 +8,9 @@ interface PanelGridItemProps {
   index: number;
 }
 
-export default function PanelGridItem({ index }: PanelGridItemProps) {
+export default function PanelGridItem({
+  index,
+}: PanelGridItemProps): JSX.Element {
   const { ref, setCurrentIndex } = usePanelState();
 
   useEffect(() => {

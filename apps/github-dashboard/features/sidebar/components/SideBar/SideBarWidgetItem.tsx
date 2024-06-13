@@ -1,6 +1,6 @@
 "use client";
 
-import type { FC } from "react";
+import type { FC, JSX } from "react";
 import { Card } from "~/components/ui/card";
 import ToolTipWrapper from "~/components/ToolTipWrapper";
 import useDrag from "~/hooks/useDrag";
@@ -19,7 +19,7 @@ export default function SideBarWidgetItem({
   width,
   name,
   component,
-}: SideBarWidgetItemProps) {
+}: SideBarWidgetItemProps): JSX.Element {
   const { onMouseDown, ...rest } = useDrag();
   return (
     <ToolTipWrapper description={description}>

@@ -1,5 +1,6 @@
 "use client";
 
+import type { JSX } from "react";
 import type { ChildrenProps } from "~/types/prop-types";
 import { useSignInSuccess } from "~/features/sign-success/hooks/useSignInSuccess";
 import SignInSuccessContext from "./SignInSuccessContext";
@@ -12,7 +13,7 @@ interface SignInSuccessProviderProps extends ChildrenProps {
 export default function SignInSuccessProvider({
   children,
   ...state
-}: ChildrenProps & SignInSuccessProviderProps) {
+}: ChildrenProps & SignInSuccessProviderProps): JSX.Element {
   const signInState = useSignInSuccess(state);
 
   return (

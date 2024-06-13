@@ -1,9 +1,14 @@
+import type { JSX } from "react";
+
 interface GitBoardLogoProps {
   width: number;
   height: number;
 }
 
-export default function GitBoardLogo({ height, width }: GitBoardLogoProps) {
+export default function GitBoardLogo({
+  height,
+  width,
+}: GitBoardLogoProps): JSX.Element {
   return (
     <svg
       fill="none"

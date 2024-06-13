@@ -1,5 +1,6 @@
 "use client";
 
+import type { JSX } from "react";
 import { Button } from "~/components/ui/button";
 import GithubLogo from "~/assets/svgs/GithubLogo";
 import { useGithubOAuth } from "~/features/sign-in/hooks/useGithubOAuth";
@@ -10,7 +11,7 @@ interface SignInWithGitHubButtonProps {
 
 export default function SignInWithGitHubButton({
   clientId,
-}: SignInWithGitHubButtonProps) {
+}: SignInWithGitHubButtonProps): JSX.Element {
   return (
     <Button
       className="w-full flex flex-row items-center justify-center gap-2"

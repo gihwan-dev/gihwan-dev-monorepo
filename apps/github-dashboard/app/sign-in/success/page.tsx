@@ -1,8 +1,9 @@
+import type { JSX} from "react";
 import { Suspense } from "react";
 import { SignInSuccess } from "~/features/sign-success";
 import LottieLoading from "~/components/LottieLoading";
 
-export default function SignInSuccessPage() {
+export default function SignInSuccessPage(): JSX.Element {
   const clientId = process.env.GITHUB_CLIENT_ID;
   const clientSecret = process.env.GITHUB_CLIENT_SECRET;
   return (

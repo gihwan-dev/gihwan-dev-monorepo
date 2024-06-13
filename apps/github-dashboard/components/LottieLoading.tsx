@@ -1,6 +1,7 @@
 "use client";
 
 import Lottie from "lottie-react";
+import type { JSX } from "react";
 import animationData from "~/public/lottie/loading.json";
 
 interface LottieLoadingProps {
@@ -13,7 +14,7 @@ export default function LottieLoading({
   loop = true,
   height = "40px",
   width = "40px",
-}: LottieLoadingProps) {
+}: LottieLoadingProps): JSX.Element {
   return (
     <div className="flex flex-col items-center justify-center">
       <Lottie

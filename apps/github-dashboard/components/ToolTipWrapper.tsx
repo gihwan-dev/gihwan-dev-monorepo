@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import type { ChildrenProps } from "~/types/prop-types";
 import {
   Tooltip,
@@ -13,7 +14,7 @@ interface ToolTipWrapperProps extends ChildrenProps {
 export default function ToolTipWrapper({
   children,
   description,
-}: ToolTipWrapperProps) {
+}: ToolTipWrapperProps): JSX.Element {
   return (
     <TooltipProvider>
       <Tooltip>
