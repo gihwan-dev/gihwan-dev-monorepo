@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import BackgroundGrayWrapper from '~/src/app/assets/icon/stories/wrapper/BackgroundGrayWrapper';
 import PlusIcon from '../PlusIcon';
 
 const meta: Meta = {
@@ -6,10 +7,10 @@ const meta: Meta = {
   component: PlusIcon,
   render: (args) => {
     return (
-      <div className="h-full w-full bg-gray-300 p-8">
-        {/* @ts-expect-error - TS doesn't like spreading the args */}
+      <BackgroundGrayWrapper>
+        {/* @ts-expect-error -- ignore type system for storybook */}
         <PlusIcon {...args} />
-      </div>
+      </BackgroundGrayWrapper>
     );
   },
 };
