@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AppBar from '../common/AppBar';
+import CheckList from './index';
 
 const meta: Meta = {
-  title: 'AppBar',
-  component: AppBar,
+  title: 'CheckList',
+  component: CheckList,
 };
 
 export default meta;
 
-export type Story = StoryObj<typeof AppBar>;
+export type Story = StoryObj<typeof CheckList>;
 
 export const Default = {};
