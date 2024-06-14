@@ -22,7 +22,7 @@ export default function RootLayout({
           type="text/css"
         />
       </Head>
-      <body>{children}</body>
+      <body className="font-sans font-serif">{children}</body>
     </html>
   );
 }

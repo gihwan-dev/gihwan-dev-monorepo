@@ -24,6 +24,9 @@ const config = {
       serif: ['NanumSquare', 'serif'],
     },
     extend: {
+      boxShadow: {
+        button: '4px 4px 0px 0px rgba(15, 23, 42, 1)',
+      },
       colors: {
         'slate/900': '#0F172A',
         'slate/800': '#1E293B',
