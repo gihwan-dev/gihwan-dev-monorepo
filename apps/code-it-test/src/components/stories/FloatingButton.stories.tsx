@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import EditIcon from '~/src/app/assets/icon/EditIcon';
 import PlusIcon from '~/src/app/assets/icon/PlusIcon';
-import FloatingButton from '../FoatingButton';
+import FloatingButton from '../common/FoatingButton';
 
 const meta: Meta = {
   title: 'FloatingButton',
