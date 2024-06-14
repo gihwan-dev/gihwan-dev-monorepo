@@ -5,7 +5,7 @@ interface InputProps {
 
 export default function Input({ onChange, value }: InputProps) {
   return (
-    <div className="shadow-button w-full rounded-full border-2 border-slate/900 bg-slate/100 px-6 py-[18px] text-base font-normal">
+    <div className="w-full rounded-full border-2 border-slate/900 bg-slate/100 px-6 py-[18px] text-base font-normal shadow-button">
       <input
         className="w-full border-none bg-slate-100 focus:outline-0"
         onChange={(e) => {
