@@ -9,24 +9,33 @@ const floatingButtonVariants = {
 interface FloatingButtonProps {
   icon: React.ReactNode;
   variants: 'edit' | 'add';
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export default function FloatingButton({
   icon,
   variants,
-  onClick,
+  onChange,
 }: FloatingButtonProps) {
   return (
-    <button
+    <label
       className={cn(
         floatingButtonVariants[variants],
-        'absolute bottom-4 right-4 z-10 flex h-16 w-16 items-center justify-center transition-all hover:opacity-70',
+        'absolute bottom-4 right-4 z-20 flex h-16 w-16 cursor-pointer items-center justify-center transition-all hover:opacity-70',
       )}
-      onClick={onClick}
-      type="button"
+      htmlFor="todo-detail-image-input"
     >
-      {icon}
-    </button>
+      <input
+        alt="todo-detail-image-input"
+        className="hidden"
+        id="todo-detail-image-input"
+        onChange={onChange}
+        size={5}
+        type="file"
+      />
+      <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        {icon}
+      </span>
+    </label>
   );
 }

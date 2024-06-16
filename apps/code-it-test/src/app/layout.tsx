@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Head from 'next/head';
+import ReactQueryProvider from '~/src/providers/ReactQueryProvider';
 
 export const metadata: Metadata = {
   title: '코드잇 스프린트 프론트엔드 단기 심화 1기 과제 - 최기환',
@@ -22,7 +23,9 @@ export default function RootLayout({
           type="text/css"
         />
       </Head>
-      <body className="font-sans font-serif">{children}</body>
+      <body>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </body>
     </html>
   );
 }

@@ -11,13 +11,14 @@ export default function CheckListContainer({
   children,
 }: CheckListContainerProps) {
   return (
-    <li
+    <label
       className={cn(
-        'flex w-full flex-row items-center gap-4 rounded-full border-2 border-slate/900 px-3 py-[9px] transition-all',
+        'flex w-full cursor-pointer flex-row items-center gap-4 rounded-full border-2 border-slate/900 px-3 py-[9px] transition-all active:opacity-50 xl:hover:opacity-70',
         isChecked ? 'bg-violet/100' : 'bg-white',
       )}
+      htmlFor="checklist"
     >
       {children}
-    </li>
+    </label>
   );
 }

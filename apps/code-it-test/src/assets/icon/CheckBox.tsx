@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { draw } from '~/src/app/const/framer-variants';
+import { draw } from '~/src/consts/framer-variants';
 
 interface CheckBoxProps {
   isChecked: boolean;
@@ -12,6 +12,7 @@ export default function CheckBox({ isChecked, onClick }: CheckBoxProps) {
   return (
     <button
       className="h-fit w-fit border-none bg-none"
+      id="checklist"
       onClick={onClick}
       type="button"
     >

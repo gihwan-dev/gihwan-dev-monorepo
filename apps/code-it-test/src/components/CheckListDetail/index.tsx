@@ -1,21 +1,9 @@
-import CheckBox from '~/src/app/assets/icon/CheckBox';
-import CheckListDetailContainer from '~/src/components/CheckListDetail/CheckListDetailContainer';
-import CheckListDetailText from '~/src/components/CheckListDetail/CheckListDetailText';
+import CheckListDetailController from '~/src/components/CheckListDetail/CheckListDetailController';
 
 interface CheckListDetailProps {
-  isChecked: boolean;
-  onClick: () => void;
-  text: string;
+  id: number;
 }
 
-export default function CheckListDetail({
-  text,
-  ...rest
-}: CheckListDetailProps) {
-  return (
-    <CheckListDetailContainer isChecked={rest.isChecked}>
-      <CheckBox {...rest} />
-      <CheckListDetailText isChecked={rest.isChecked} text={text} />
-    </CheckListDetailContainer>
-  );
+export default function CheckListDetail({ id }: CheckListDetailProps) {
+  return <CheckListDetailController id={id} />;
 }

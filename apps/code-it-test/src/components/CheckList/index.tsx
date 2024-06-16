@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import CheckBox from '~/src/app/assets/icon/CheckBox';
+import CheckBox from '~/src/assets/icon/CheckBox';
 import CheckListContainer from '~/src/components/CheckList/CheckListContainer';
 import CheckListText from '~/src/components/CheckList/CheckListText';
 

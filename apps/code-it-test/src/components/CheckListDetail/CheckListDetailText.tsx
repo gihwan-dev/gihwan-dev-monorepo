@@ -12,7 +12,7 @@ export default function CheckListDetailText({
   isChecked,
 }: CheckListDetailProps) {
   return (
-    <p
+    <div
       className={cn(
         'relative line-clamp-1 w-fit max-w-full text-large font-bold text-slate/900',
       )}
@@ -26,6 +26,6 @@ export default function CheckListDetailText({
           transition={{ duration: 0.5 }}
         />
       ) : null}
-    </p>
+    </div>
   );
 }
