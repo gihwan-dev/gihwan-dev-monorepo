@@ -7,7 +7,7 @@ export default function Input({ onChange, value }: InputProps) {
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control -- type not inferred
     <label
-      className="shadow-button flex-1 rounded-full border-2 border-slate/900 bg-slate/100 px-6 py-4 text-base font-normal"
+      className="flex-1 rounded-full border-2 border-slate/900 bg-slate/100 px-6 py-4 text-base font-normal shadow-button"
       htmlFor="search-input"
     >
       <input

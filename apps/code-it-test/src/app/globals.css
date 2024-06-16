@@ -4,29 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-    font-family: 'NanumSquare', sans-serif;
+  font-family: 'NanumSquare', sans-serif;
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 4px;
+  width: 4px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 3px;
+  background: transparent;
+  border-radius: 3px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #FDE68A;
-    border-radius: 3px;
+  background: #fde68a;
+  border-radius: 3px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #FDE68A;
+  background: #fde68a;
 }
