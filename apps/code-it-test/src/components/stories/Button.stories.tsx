@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import PlusIcon from '~/src/app/assets/icon/PlusIcon';
+import PlusIcon from '~/src/assets/icon/PlusIcon';
 import Button from '~/src/components/common/Button';
 
 const meta: Meta = {
@@ -16,7 +16,7 @@ export const Default: Story = {
     type: 'button',
     // eslint-disable-next-line @typescript-eslint/no-empty-function -- just for story
     onClick: () => {},
-    icon: <PlusIcon color="white" size="small" />,
+    icon: <PlusIcon size="small" />,
     text: '추가 하기',
   },
 };
@@ -26,6 +26,6 @@ export const OnlyICon: Story = {
     type: 'button',
     // eslint-disable-next-line @typescript-eslint/no-empty-function -- just for story
     onClick: () => {},
-    icon: <PlusIcon color="white" size="small" />,
+    icon: <PlusIcon size="small" />,
   },
 };

@@ -1,24 +1,25 @@
 'use client';
 
 import React from 'react';
-import CheckBox from '~/src/app/assets/icon/CheckBox';
+import CheckBox from '~/src/assets/icon/CheckBox';
 import CheckListContainer from '~/src/components/CheckList/CheckListContainer';
 import CheckListText from '~/src/components/CheckList/CheckListText';
 
 interface CheckListProps {
   text: string;
   isChecked: boolean;
-  onClick: () => void;
+  src: string;
 }
 
 export default function CheckList({
   text,
-  ...rest
+  isChecked,
+  src,
 }: CheckListProps): React.JSX.Element {
   return (
-    <CheckListContainer isChecked={rest.isChecked}>
-      <CheckBox {...rest} />
-      <CheckListText isChecked={rest.isChecked} text={text} />
+    <CheckListContainer isChecked={isChecked} src={src}>
+      <CheckBox isChecked={isChecked} />
+      <CheckListText isChecked={isChecked} text={text} />
     </CheckListContainer>
   );
 }

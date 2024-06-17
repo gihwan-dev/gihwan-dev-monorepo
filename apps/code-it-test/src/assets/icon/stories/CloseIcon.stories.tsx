@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import BackgroundGrayWrapper from '~/src/app/assets/icon/stories/wrapper/BackgroundGrayWrapper';
+import BackgroundGrayWrapper from '~/src/assets/icon/stories/wrapper/BackgroundGrayWrapper';
 import CloseIcon from '../CloseIcon';
 
 const meta: Meta = {
