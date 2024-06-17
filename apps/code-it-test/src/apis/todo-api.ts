@@ -22,6 +22,7 @@ export async function getTodos() {
     headers: {
       'Content-Type': 'application/json',
     },
+    cache: 'no-cache',
   });
 
   if (!response.ok) {
@@ -39,7 +40,12 @@ export async function updateTodo(
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(todo),
+    body: JSON.stringify({
+      name: todo.name,
+      memo: todo.memo ?? '',
+      imageUrl: todo.imageUrl ?? '',
+      isCompleted: todo.isCompleted,
+    }),
   });
 }
 
@@ -51,6 +57,7 @@ export async function getTodoDetail(id: number) {
       headers: {
         'Content-Type': 'application/json',
       },
+      cache: 'no-cache',
     },
   );
 
@@ -75,4 +82,10 @@ export async function uploadImage(formData: FormData) {
   }
 
   return (await response.json()) as { url: string };
+}
+
+export function deleteTodo(id: number) {
+  return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/items/${id}`, {
+    method: 'DELETE',
+  });
 }

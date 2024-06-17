@@ -1,10 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
 import { updateTodo } from '~/src/apis/todo-api';
 import { stores } from '~/src/queries/stores';
 import type { TodoOverview } from '~/src/types/todo-type';
 
 export default function useUpdateTodo(id: number) {
   const queryClient = useQueryClient();
+  const router = useRouter();
   return useMutation({
     mutationFn: updateTodo,
     mutationKey: stores.todo.createOne.queryKey,
@@ -12,10 +14,7 @@ export default function useUpdateTodo(id: number) {
     onMutate: async (newTodo) => {
       // 진행되는 다른 쿼리를 취소합니다. 낙관적 업데이트가 덮어씌어지지 않도록 하기 위함 입니다.
       await queryClient.cancelQueries({
-        queryKey: stores.todo.updateOne(id).queryKey,
-      });
-      await queryClient.cancelQueries({
-        queryKey: stores.todo.updateOne(id).queryKey,
+        queryKey: ['todo'],
       });
 
       // 이전 데이터의 스냅샷을 찍습니다.
@@ -27,12 +26,15 @@ export default function useUpdateTodo(id: number) {
       queryClient.setQueryData(stores.todo.getOne(id).queryKey, newTodo);
       queryClient.setQueryData(
         stores.todo.getAll.queryKey,
-        (prev: TodoOverview[]) => {
-          return prev.map((todo) =>
-            todo.id === id ? { ...todo, ...newTodo } : todo,
+        (prev: TodoOverview[] | undefined) => {
+          return prev?.map((todo) =>
+            todo.id === id
+              ? { name: newTodo.name, isCompleted: newTodo.isCompleted }
+              : todo,
           );
         },
       );
+      router.push('/');
 
       // 이전 데이터를 반환합니다.
 
@@ -47,8 +49,8 @@ export default function useUpdateTodo(id: number) {
       );
       queryClient.setQueryData(
         stores.todo.getAll.queryKey,
-        (prev: TodoOverview[]) => {
-          return prev.map((todo) =>
+        (prev: TodoOverview[] | undefined) => {
+          return prev?.map((todo) =>
             todo.id === id ? context.previousData : todo,
           );
         },

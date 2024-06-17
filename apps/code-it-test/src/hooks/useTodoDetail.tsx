@@ -1,31 +1,28 @@
 import type { ChangeEvent } from 'react';
-import { useState } from 'react';
-import useGetTodoDetail from '~/src/queries/useGetTodoDetail';
 import useUpdateTodo from '~/src/queries/useUpdateTodo';
-import type { Todo } from '~/src/types/todo-type';
 import { getImage } from '~/src/utils/input-utils';
 import { uploadImage } from '~/src/apis/todo-api';
+import { useTodoDetailContext } from '~/src/providers/TodoDetailContextProvider';
+import useDeleteTodo from '../queries/useDeleteTodo';
 
-export default function useTodoDetail(id: number) {
-  const { mutate } = useUpdateTodo(id);
+export default function useTodoDetail() {
+  const { todoDetail, updateTodo: changeTodoState } = useTodoDetailContext();
+  const { mutate: requestUpdate } = useUpdateTodo(todoDetail.id);
+  const { mutate: requestDelete } = useDeleteTodo(todoDetail.id);
 
-  const { data: todoDetail } = useGetTodoDetail(id);
-
-  const [todoState, setTodoState] = useState<Todo>(todoDetail);
-
-  const changeTodoState = (newTodoState: Partial<Todo>) => {
-    setTodoState((prev) => ({ ...prev, ...newTodoState }));
+  const updateTodo = () => {
+    requestUpdate(todoDetail);
   };
 
-  const updateTodo = (newTodoState: Todo) => {
-    mutate(newTodoState);
+  const deleteTodo = () => {
+    requestDelete(todoDetail.id);
   };
 
   const changeImage = async (e: ChangeEvent<HTMLInputElement>) => {
     const image = getImage(e);
 
     // 이미지 url 생성해서 낙관적 업데이트
-    changeTodoState({ ...todoState, imageUrl: URL.createObjectURL(image) });
+    changeTodoState({ imageUrl: URL.createObjectURL(image) });
 
     const formData = new FormData();
 
@@ -33,13 +30,14 @@ export default function useTodoDetail(id: number) {
 
     const result = await uploadImage(formData);
 
-    setTodoState((prev) => ({ ...prev, imageUrl: result.url }));
+    changeTodoState({ imageUrl: result.url });
   };
 
   return {
-    todoDetail: todoState,
+    todoDetail,
     updateTodo,
     changeTodoState,
     changeImage,
+    deleteTodo,
   };
 }

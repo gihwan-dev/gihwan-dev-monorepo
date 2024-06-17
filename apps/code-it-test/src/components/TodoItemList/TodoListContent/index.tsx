@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
-import TodoListController from '~/src/components/TodoItemList/TodoListContent/TodoListController';
+import TodoContent from '~/src/components/TodoItemList/TodoListContent/TodoContent';
 
 export default function TodoListContent() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <TodoListController />
+      <TodoContent />
     </Suspense>
   );
 }

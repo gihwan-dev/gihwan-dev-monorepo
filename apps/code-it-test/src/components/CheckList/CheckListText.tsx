@@ -9,9 +9,9 @@ interface CheckListTextProps {
 
 export default function CheckListText({ text, isChecked }: CheckListTextProps) {
   return (
-    <p
+    <div
       className={cn(
-        'relative line-clamp-1 w-full text-base font-normal text-slate/800',
+        'relative line-clamp-1 w-fit text-base font-normal text-slate/800',
       )}
     >
       {text}
@@ -23,6 +23,6 @@ export default function CheckListText({ text, isChecked }: CheckListTextProps) {
           transition={{ duration: 0.5 }}
         />
       ) : null}
-    </p>
+    </div>
   );
 }

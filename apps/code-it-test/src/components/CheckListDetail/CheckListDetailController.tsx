@@ -5,14 +5,8 @@ import CheckListDetailContainer from '~/src/components/CheckListDetail/CheckList
 import useTodoDetail from '~/src/hooks/useTodoDetail';
 import CheckBox from '../../assets/icon/CheckBox';
 
-interface CheckListDetailProps {
-  id: number;
-}
-
-export default function CheckListDetailController({
-  id,
-}: CheckListDetailProps) {
-  const { todoDetail, changeTodoState } = useTodoDetail(id);
+export default function CheckListDetailController() {
+  const { todoDetail, changeTodoState } = useTodoDetail();
 
   return (
     <CheckListDetailContainer isChecked={todoDetail.isCompleted}>

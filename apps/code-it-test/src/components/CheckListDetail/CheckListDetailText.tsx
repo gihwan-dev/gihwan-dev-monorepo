@@ -14,7 +14,7 @@ export default function CheckListDetailText({
   return (
     <div
       className={cn(
-        'relative line-clamp-1 w-fit max-w-full text-large font-bold text-slate/900',
+        'relative line-clamp-1 inline w-fit max-w-full text-large font-bold text-slate/900',
       )}
     >
       {text}

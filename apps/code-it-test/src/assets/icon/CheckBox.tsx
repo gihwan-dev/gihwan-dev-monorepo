@@ -5,7 +5,7 @@ import { draw } from '~/src/consts/framer-variants';
 
 interface CheckBoxProps {
   isChecked: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function CheckBox({ isChecked, onClick }: CheckBoxProps) {

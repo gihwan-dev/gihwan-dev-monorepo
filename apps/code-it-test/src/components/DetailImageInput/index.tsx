@@ -8,12 +8,12 @@ import { EditIcon, PlusIcon } from '~/src/assets/icon';
 import EmptyImageView from '~/src/components/DetailImageInput/EmptyImageView';
 import { isValidImage } from '~/src/utils/todo-utils';
 
-export default function DetailImageInput({ id }: { id: number }) {
-  const { todoDetail, changeImage } = useTodoDetail(id);
+export default function DetailImageInput() {
+  const { todoDetail, changeImage } = useTodoDetail();
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className="relative mt-4 h-80 w-full overflow-hidden rounded-3xl">
+      <div className="relative mt-4 h-80 w-full overflow-hidden rounded-3xl xl:w-[495px]">
         {isValidImage(todoDetail.imageUrl) ? (
           <Image
             alt="todo-detail-image-input"

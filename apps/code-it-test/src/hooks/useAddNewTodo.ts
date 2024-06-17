@@ -20,6 +20,7 @@ export default function useAddNewTodo() {
     e.preventDefault();
     mutate(name, {
       onSuccess: (data) => {
+        setName('');
         queryClient.setQueryData(
           stores.todo.getAll.queryKey,
           (prev: TodoOverview[]) => {
