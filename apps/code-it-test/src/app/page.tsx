@@ -3,6 +3,8 @@ import AddNewTodoForm from '~/src/components/AddNewTodoForm';
 import TodoItemList from '~/src/components/TodoItemList';
 import DoneItemList from '~/src/components/DoneItemList';
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   return (
     <main>
