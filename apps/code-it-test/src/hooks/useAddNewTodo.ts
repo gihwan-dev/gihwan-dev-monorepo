@@ -34,13 +34,13 @@ export default function useAddNewTodo() {
   const getColor = (): {
     backgroundColor: 'violet' | 'gray';
     textColor: 'white' | 'slate';
-    iconColor: 'slate/900' | 'white';
+    iconColor: 'black' | 'white';
   } => {
     if (name.trim().length === 0) {
       return {
         backgroundColor: 'gray',
         textColor: 'slate',
-        iconColor: 'slate/900',
+        iconColor: 'black',
       };
     }
 

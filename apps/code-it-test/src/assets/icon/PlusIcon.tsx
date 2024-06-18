@@ -1,12 +1,25 @@
+import { cn } from '~/lib/utils';
+
 interface PlusIconProps {
   size: 'small' | 'large';
+  color?: 'white' | 'black' | 'gray';
 }
 
-export default function PlusIcon({ size }: PlusIconProps) {
-  return size === 'small' ? <PlusSmall /> : <PlusLarge />;
+const iconColor = {
+  white: 'stroke-white',
+  black: 'stroke-slate/900',
+  gray: 'stroke-slate/500',
+};
+
+export default function PlusIcon({ size, color }: PlusIconProps) {
+  return size === 'small' ? (
+    <PlusSmall color={color} />
+  ) : (
+    <PlusLarge color={color} />
+  );
 }
 
-function PlusLarge() {
+function PlusLarge({ color = 'gray' }: Pick<PlusIconProps, 'color'>) {
   return (
     <svg
       fill="none"
@@ -16,14 +29,14 @@ function PlusLarge() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
+        className={cn(iconColor[color])}
         d="M3 12L21 12"
-        stroke="#64748B"
         strokeLinecap="round"
         strokeWidth="3"
       />
       <path
+        className={cn(iconColor[color])}
         d="M12 21L12 3"
-        stroke="#64748B"
         strokeLinecap="round"
         strokeWidth="3"
       />
@@ -31,7 +44,7 @@ function PlusLarge() {
   );
 }
 
-function PlusSmall() {
+function PlusSmall({ color = 'white' }: Pick<PlusIconProps, 'color'>) {
   return (
     <svg
       fill="none"
@@ -41,14 +54,14 @@ function PlusSmall() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
+        className={cn(iconColor[color])}
         d="M2 8L14 8"
-        stroke="white"
         strokeLinecap="round"
         strokeWidth="2"
       />
       <path
+        className={cn(iconColor[color])}
         d="M8 14L8 2"
-        stroke="white"
         strokeLinecap="round"
         strokeWidth="2"
       />

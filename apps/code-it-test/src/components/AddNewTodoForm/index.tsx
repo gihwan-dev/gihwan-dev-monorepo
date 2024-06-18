@@ -7,7 +7,6 @@ import AddNewTodoFormErrorBoundary from '~/src/components/AddNewTodoForm/AddNewT
 
 export default function AddNewTodoForm() {
   return (
-    // TODO: 에러 바운더리 수정하기
     <ErrorBoundary errorComponent={AddNewTodoFormErrorBoundary}>
       <AddNewTodoFormController />
     </ErrorBoundary>

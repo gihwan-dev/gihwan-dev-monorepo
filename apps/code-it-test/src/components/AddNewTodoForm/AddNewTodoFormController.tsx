@@ -19,7 +19,7 @@ export default function AddNewTodoFormController() {
           isPending ? (
             <LoaderCircle className="animate-spin text-white" size={16} />
           ) : (
-            <PlusIcon size="small" />
+            <PlusIcon color={getColor().iconColor} size="small" />
           )
         }
         text={isMobile() ? undefined : '추가하기'}
